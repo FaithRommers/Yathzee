@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="names header--item">
+          <p id="name1">Player 1:</p>
+        </div>
+        <div class="turn header--item">
+          <p class="header--text">Turn</p>
+          <p class="header--text" id="turn">Player 1</p>
+          <!--de speler die aan de beurt is-->
+        </div>
+        <div class="rolls header--item">
+          <p class="header--text">Rolls left</p>
+          <p class="header--text" id="rolls">3</p>
+          <!--het aantal keer dat er nog gegooit kan worden-->
+        </div>
+        <button class="rollButton header--item" onclick="rollDie()">
+          ROLL!</button
+        ><!--de roll button die on click d functie roll uitvoert in javascript-->
+        <div class="highscore header--item">
+          <p class="header--text">Highscore</p>
+          <p class="header--text" id="highscore">0</p>
+          <!--highscore-->
+        </div>
+      </div>
+      <div class="main">
+        <div class="p1 player main--item">
+          <div class="name player--item">P1</div>
+          <div class="top player--item">
+            <div class="singles top--item">
+              <p>Aces</p>
+              <p>Twos</p>
+              <p>Threes</p>
+              <p>Fours</p>
+              <p>Fives</p>
+              <p>Sixes</p>
+              <p>Subtotal</p>
+              <p>Bonus</p>
+              <p>Total</p>
+            </div>
+            <div class="score--indicator top--item">
+              <!--de blauwe vakjes, hier kies je welke punten je wilt gebruiken-->
+              <button
+                class="selectAceButton header--item"
+                id="aceP1"
+                onclick="calcSingles(1)"
+              >
+                SELECT 1
+              </button>
+              <button
+                class="selectTwoButton header--item"
+                id="twoP1"
+                onclick="calcSingles(2)"
+              >
+                SELECT 2
+              </button>
+              <button
+                class="selectThreeButton header--item"
+                id="threeP1"
+                onclick="calcSingles(3)"
+              >
+                SELECT 3
+              </button>
+              <button
+                class="selectFourButton header--item"
+                id="fourP1"
+                onclick="calcSingles(4)"
+              >
+                SELECT 4
+              </button>
+              <button
+                class="selectFiveButton header--item"
+                id="fiveP1"
+                onclick="calcSingles(5)"
+              >
+                SELECT 5
+              </button>
+              <button
+                class="selectSixButton header--item"
+                id="sixP1"
+                onclick="calcSingles(6)"
+              >
+                SELECT 6
+              </button>
+            </div>
+            <div class="score--locked top--item">
+              <!--de beige vakjes, hier zie je hoeveel punten er gewonnen zijn in die rij-->
+              <p class="locked--score" id="acesP1">0</p>
+              <p class="locked--score" id="twosP1">0</p>
+              <p class="locked--score" id="threesP1">0</p>
+              <p class="locked--score" id="foursP1">0</p>
+              <p class="locked--score" id="fivesP1">0</p>
+              <p class="locked--score" id="sixesP1">0</p>
+
+              <p class="locked--score" id="subtotalP1">0</p>
+              <p class="locked--score" id="bonus--p1--locked">0</p>
+              <p class="locked--score" id="total--p1--locked">0</p>
+            </div>
+          </div>
+          <div class="bottom player--item">
+            <div class="combinations bottom--item">
+              <p>Three of a kind</p>
+              <p>Four of a kind</p>
+              <p>Full house</p>
+              <p>Small straight</p>
+              <p>Large straight</p>
+              <p>Yahtzee</p>
+              <p>Chance</p>
+              <p>Total</p>
+            </div>
+            <div class="score--indicator bottom--item">
+              <button
+                class="selectTkindButton header--item"
+                id="tKindP1"
+                onclick="calcTkind()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="fKindP1"
+                onclick="calcFkind()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="fHouseP1"
+                onclick="calcFhouse()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="smallP1"
+                onclick="calcSmall()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="bigP1"
+                onclick="calcBig()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="yahtzeeP1"
+                onclick="calcYahtzee()"
+              >
+                SELECT
+              </button>
+              <button
+                class="selectTkindButton header--item"
+                id="chanceP1"
+                onclick="calcChance()"
+              >
+                SELECT
+              </button>
+            </div>
+            <div class="score--locked bottom--item">
+              <p class="locked--score" id="tkind--p1--locked">0</p>
+              <p class="locked--score" id="fkind--p1--locked">0</p>
+              <p class="locked--score" id="fouse--p1--locked">0</p>
+              <p class="locked--score" id="small--p1--locked">0</p>
+              <p class="locked--score" id="large--p1--locked">0</p>
+              <p class="locked--score" id="yahtzee--p1--locked">0</p>
+
+              <p class="locked--score" id="chance--p1--locked">0</p>
+              <p class="locked--score" id="totalCombo--p1--locked">0</p>
+            </div>
+          </div>
+          <div class="totals player--item">
+            <div class="all--totals totals--item">
+              <p>Top section total</p>
+              <p>Bottom section total</p>
+              <p>Grand total</p>
+            </div>
+            <div class="score--indicator totals--item"></div>
+            <!-- hier schrijf je de totalen op -->
+            <div class="score--locked totals--item">
+              <p class="locked--score" id="top--p1--total">0</p>
+              <p class="locked--score" id="bottom--p1--locked">0</p>
+              <p class="locked--score" id="grand--p1--locked">0</p>
+            </div>
+          </div>
+        </div>
+        <!--Alle dobbelstenen appart-->
+        <div class="table main--item">
+          <img class="dice" id="die1" src="Images/Dice-1.png" />
+          <img class="dice" id="die2" src="Images/Dice-1.png" />
+          <img class="dice" id="die3" src="Images/Dice-1.png" />
+          <img class="dice" id="die4" src="Images/Dice-1.png" />
+          <img class="dice" id="die5" src="Images/Dice-1.png" />
+        </div>
+      </div>
+      <div class="footer"></div>
+    </div>
+
+    <script src="Index.js"></script>
+  </body>
+</html>
